@@ -1,0 +1,6 @@
+{
+  "name": "わんナイト人狼 🐾",
+  "description": "みんなで遊べるオンライン推理ゲーム",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

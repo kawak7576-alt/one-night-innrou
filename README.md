@@ -1,11 +1,104 @@
-<div align="center">
+# わんナイト人狼 🐾 (Wan-Night Jinrou)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+かわいいワンコたちと遊ぶ、スマートフォン・PC両対応のリアルタイム・ブラウザ人狼ゲーム！  
+アプリのインストールやアカウント登録は不要。URLやQRコード、2桁の部屋コードで友達とすぐに合流して遊べます。
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🌟 主な特徴
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- 📱 **スマホ完全最適化**: iPhone Safari や Android、LINE内ブラウザで快適に動作するレスポンシブデザイン
+- ⚡ **リアルタイム通信**: Node.js + WebSocket による超高速・低遅延な同期
+- 🐕 **オリジナル犬役職**: 村人、占い師、怪盗、狩人、人狼、大狼、吊人の全7役職を搭載
+- 🔢 **かんたん2桁部屋コード**: 「42」など2桁の数字を入力するだけで直感的に合流
+- 👑 **部屋主キック機能**: 誤参加や放置プレイヤーを安全に追放できる確認モーダル付きキック機能
+- 🔄 **スムーズな再戦**: リセット時は参加メンバーを維持したまま「参加わんこ一覧」画面へ復帰
+- 💬 **LINE OGP対応**: LINEでURLを送信した際、可愛いオリジナルキービジュアルとタイトルが綺麗にプレビュー表示
 
-</div>
+---
+
+## 🚀 GitHubへのプッシュ手順（初回連携）
+
+GitHubにリポジトリを同期させたい場合は、ターミナルで以下の手順を実行してください。
+
+```bash
+# 1. GitHub（https://github.com/new）で新しいリポジトリを作成します（例: wan-night-werewolf）
+
+# 2. リモートリポジトリを登録（<YOUR_USERNAME> と <YOUR_REPO> をご自身のアカウントに置換）
+git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPO>.git
+
+# 3. メインブランチをプッシュ
+git branch -M main
+git push -u origin main
+```
+
+以降は変更を加えたら、以下のコマンドで簡単にGitHubへ同期できます：
+```bash
+git add .
+git commit -m "update: 変更内容のメモ"
+git push
+```
+
+---
+
+## 🛠️ ローカルでの動かし方
+
+### 前提条件
+- Node.js 18以上
+- npm
+
+### 開発サーバーの起動
+```bash
+# 依存パッケージのインストール
+npm install
+
+# 開発サーバー起動（Vite + WebSocketサーバーが起動します）
+npm run dev
+```
+ブラウザで `http://localhost:3000` を開きます。
+
+### 本番ビルドと起動
+```bash
+# クライアントのビルド
+npm run build
+
+# 本番サーバーの起動
+npm start
+```
+
+---
+
+## 🚢 無料・簡単デプロイ先（おすすめ）
+
+WebSocketに対応した以下のホスティングサービスにGitHubリポジトリを連携するだけで、自動でWeb上に公開できます：
+
+1. **Render (render.com)**:
+   - Web Service を新規作成し、GitHubリポジトリを選択
+   - Build Command: `npm install && npm run build`
+   - Start Command: `npm start`
+   - 無料プランあり・WebSocket完全対応
+
+2. **Railway (railway.app)**:
+   - GitHubリポジトリを連携するだけで同梱の `Dockerfile` または `npm start` を自動認識して即座にデプロイ
+
+3. **Google Cloud Run / VPS**:
+   - リポジトリに含まれる `Dockerfile` を使ってビルド・デプロイ可能
+
+---
+
+## 🐾 役職一覧
+
+| アイコン | 役職名 | 陣営 | 特徴 |
+|:---:|:---:|:---:|:---|
+| 🐶 | 村人 | 村人陣営 | 特別な能力はありませんが、議論で人狼を見つけ出します。 |
+| 🔮 | 占い師 | 村人陣営 | 他のプレイヤー1人の役職、または墓地のカード2枚を覗き見できます。 |
+| 🎭 | 怪盗 | 村人陣営 | 他のプレイヤー1人と役職カードを交換できます（交換相手の役職を引き継ぎます）。 |
+| 🏹 | 狩人 | 村人陣営 | 処刑された時、道連れにするプレイヤーを1人指名して処刑します。 |
+| 🐺 | 人狼 | 人狼陣営 | 夜に仲間を確認します。処刑を逃れると勝利となります。 |
+| 🩸 | 大狼 | 人狼陣営 | 人狼の仲間を確認し、さらに墓地のカード2枚を密かに確認できます。 |
+| 👻 | 吊人 | 吊人陣営 | 第三勢力。昼の議論で怪しまれ、自分が処刑されると単独勝利となります。 |
+
+---
+
+## 📜 ライセンス
+Apache License 2.0
